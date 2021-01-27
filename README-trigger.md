@@ -39,7 +39,7 @@
    
    * install yaml을 다운로드한다.
    ```bash
-    wget https://storage.googleapis.com/tekton-releases/triggers/previous/v0.4.0/release.yaml -O tekton-triggers-v0.4.0.yaml
+    wget https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-triggers-v0.4.0.yaml -O tekton-triggers-v0.4.0.yaml
    ```
 
 2. 폐쇄망 환경으로 전송
@@ -87,7 +87,7 @@
 * 생성 순서 : 아래 command로 설치 yaml 적용
     * (외부망 연결된 환경 설치 시 실행)
     ```bash
-    kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/previous/v0.4.0/release.yaml
+    kubectl apply -f https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-triggers-v0.4.0.yaml
     ```
     * (폐쇄망 환경 설치 시 실행)
     ```bash
@@ -103,7 +103,7 @@
 * 생성 순서 : 아래 command로 설치 yaml 삭제
     * (외부망 연결된 환경 설치 시 실행)
     ```bash
-    kubectl delete -f https://storage.googleapis.com/tekton-releases/triggers/previous/v0.4.0/release.yaml
+    kubectl delete -f https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-triggers-v0.4.0.yaml
     ```
     * (폐쇄망 환경 설치 시 실행)
     ```bash

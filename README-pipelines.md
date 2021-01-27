@@ -68,7 +68,7 @@
     ```
     * install yaml을 다운로드한다.
     ```bash
-    wget https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.12.1/release.yaml -O tekton-pipeline-v0.12.1.yaml 
+    wget https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-pipeline-v0.12.1.yaml -O tekton-pipeline-v0.12.1.yaml
     ```
 
 2. 폐쇄망 환경으로 전송
@@ -145,7 +145,7 @@
 * 생성 순서 : 아래 command로 설치 yaml 적용
     * (외부망 연결된 환경 설치 시 실행)
     ```bash
-    kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.12.1/release.yaml
+    kubectl apply -f https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-pipeline-v0.12.1.yaml
     ```
     * (폐쇄망 환경 설치 시 실행)
     ```bash
@@ -161,7 +161,7 @@
 * 생성 순서 : 아래 command로 설치 yaml 삭제
     * (외부망 연결된 환경 설치 시 실행)
     ```bash
-    kubectl delete -f https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.12.1/release.yaml
+    kubectl delete -f https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-pipeline-v0.12.1.yaml
     ```
     * (폐쇄망 환경 설치 시 실행)
     ```bash

@@ -47,4 +47,4 @@ docker save busybox:v0.12.1 > tekton-pipeline-busybox-v0.12.1.tar
 docker save google-cloud-sdk:v0.12.1 > tekton-pipeline-google-cloud-sdk-v0.12.1.tar
 
 # install yaml을 다운로드한다.
-wget https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.12.1/release.yaml -O tekton-pipeline-v0.12.1.yaml
+wget https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-pipeline-v0.12.1.yaml -O tekton-pipeline-v0.12.1.yaml

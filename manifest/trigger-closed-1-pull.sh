@@ -21,5 +21,5 @@ docker save triggers-controller:v0.4.0 > tekton-triggers-controller-v0.4.0.tar
 docker save triggers-eventlistenersink:v0.4.0 > tekton-triggers-eventlistenersink-v0.4.0.tar
 docker save triggers-webhook:v0.4.0 > tekton-triggers-webhook-v0.4.0.tar
 
-* install yaml을 다운로드한다.
-wget https://storage.googleapis.com/tekton-releases/triggers/previous/v0.4.0/release.yaml -O tekton-triggers-v0.4.0.yaml
+# install yaml을 다운로드한다.
+wget https://raw.githubusercontent.com/tmax-cloud/install-tekton/4.1/manifest/tekton-triggers-v0.4.0.yaml -O tekton-triggers-v0.4.0.yaml
