@@ -28,6 +28,8 @@ function install_cicd_operator(){
 
     kubectl apply -f "$install_dir/yaml/operator.yaml" "$kubectl_opt"
   fi
+
+  kubectl -n cicd-system patch configmap cicd-config --type merge -p '{"data": {"ingressClass": "nginx-shd"}}' "$kubectl_opt"
   echo  "========================================================================="
   echo  "================  Successfully Installed CI/CD Operator ================="
   echo  "========================================================================="
