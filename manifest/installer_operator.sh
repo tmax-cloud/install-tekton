@@ -24,7 +24,7 @@ function install_cicd_operator(){
   if [[ "$imageRegistry" == "" ]]; then
     kubectl apply -f "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/release.yaml" "$kubectl_opt"
   else
-    sed -i -E 's/tmaxcloudck\/([^\n\"]*)/172.22.11.2:30500\/\1/g' "$install_dir/yaml/operator.yaml"
+    sed -i -E "s/tmaxcloudck\/([^\n\"]*)/$imageRegistry\/\1/g" "$install_dir/yaml/operator.yaml"
 
     kubectl apply -f "$install_dir/yaml/operator.yaml" "$kubectl_opt"
   fi
