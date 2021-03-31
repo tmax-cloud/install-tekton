@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export kubectl_opt=""
+export kubectl_opt="-v=0"
 [[ "$0" != "$BASH_SOURCE" ]] && export install_dir=$(dirname "$BASH_SOURCE") || export install_dir=$(dirname $0)
 . "$install_dir/cicd.config"
 
