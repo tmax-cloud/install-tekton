@@ -11,7 +11,6 @@ function prepare_tekton_pipeline_online(){
   docker pull "gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:$pipelineVersion"
   docker pull "gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:$pipelineVersion"
   docker pull "gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:$pipelineVersion"
-  docker pull "gcr.io/tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher:$pipelineVersion"
   docker pull "gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:27b2c22bf259d9bc1a291e99c63791ba0c27a04d2db0a43241ba0f1f20f4067f"
   docker pull "gcr.io/distroless/base@sha256:92720b2305d7315b5426aec19f8651e9e04222991f877cae71f40b3141d2f07e"
 
@@ -23,7 +22,6 @@ function prepare_tekton_pipeline_online(){
   docker tag "gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:$pipelineVersion" "pipelines-nop:$pipelineVersion"
   docker tag "gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:$pipelineVersion" "pipelines-imagedigestexporter:$pipelineVersion"
   docker tag "gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:$pipelineVersion" "pipelines-pullrequest-init:$pipelineVersion"
-  docker tag "gcr.io/tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher:$pipelineVersion" "pipelines-gcs-fetcher:$pipelineVersion"
   docker tag "gcr.io/google.com/cloudsdktool/cloud-sdk@sha256:27b2c22bf259d9bc1a291e99c63791ba0c27a04d2db0a43241ba0f1f20f4067f" "pipelines-cloud-sdk:$pipelineVersion"
   docker tag "gcr.io/distroless/base@sha256:92720b2305d7315b5426aec19f8651e9e04222991f877cae71f40b3141d2f07e" "pipelines-base:$pipelineVersion"
 
@@ -35,7 +33,6 @@ function prepare_tekton_pipeline_online(){
   docker save "pipelines-nop:$pipelineVersion" > "$install_dir/tar/pipelines-nop-$pipelineVersion.tar"
   docker save "pipelines-imagedigestexporter:$pipelineVersion" > "$install_dir/tar/pipelines-imagedigestexporter-$pipelineVersion.tar"
   docker save "pipelines-pullrequest-init:$pipelineVersion" > "$install_dir/tar/pipelines-pullrequest-init-$pipelineVersion.tar"
-  docker save "pipelines-gcs-fetcher:$pipelineVersion" > "$install_dir/tar/pipelines-gcs-fetcher-$pipelineVersion.tar"
   docker save "pipelines-cloud-sdk:$pipelineVersion" > "$install_dir/tar/pipelines-cloud-sdk-$pipelineVersion.tar"
   docker save "pipelines-base:$pipelineVersion" > "$install_dir/tar/pipelines-base-$pipelineVersion.tar"
 }
@@ -49,7 +46,6 @@ function prepare_tekton_pipeline_offline(){
   docker load < "$install_dir/tar/pipelines-nop-$pipelineVersion.tar"
   docker load < "$install_dir/tar/pipelines-imagedigestexporter-$pipelineVersion.tar"
   docker load < "$install_dir/tar/pipelines-pullrequest-init-$pipelineVersion.tar"
-  docker load < "$install_dir/tar/pipelines-gcs-fetcher-$pipelineVersion.tar"
   docker load < "$install_dir/tar/pipelines-cloud-sdk-$pipelineVersion.tar"
   docker load < "$install_dir/tar/pipelines-base-$pipelineVersion.tar"
 
@@ -61,7 +57,6 @@ function prepare_tekton_pipeline_offline(){
   docker tag "pipelines-nop:$pipelineVersion" "$imageRegistry/pipelines-nop:$pipelineVersion"
   docker tag "pipelines-imagedigestexporter:$pipelineVersion" "$imageRegistry/pipelines-imagedigestexporter:$pipelineVersion"
   docker tag "pipelines-pullrequest-init:$pipelineVersion" "$imageRegistry/pipelines-pullrequest-init:$pipelineVersion"
-  docker tag "pipelines-gcs-fetcher:$pipelineVersion" "$imageRegistry/pipelines-gcs-fetcher:$pipelineVersion"
   docker tag "pipelines-cloud-sdk:$pipelineVersion" "$imageRegistry/pipelines-cloud-sdk:$pipelineVersion"
   docker tag "pipelines-base:$pipelineVersion" "$imageRegistry/pipelines-base:$pipelineVersion"
 
@@ -73,7 +68,6 @@ function prepare_tekton_pipeline_offline(){
   docker push "$imageRegistry/pipelines-nop:$pipelineVersion"
   docker push "$imageRegistry/pipelines-imagedigestexporter:$pipelineVersion"
   docker push "$imageRegistry/pipelines-pullrequest-init:$pipelineVersion"
-  docker push "$imageRegistry/pipelines-gcs-fetcher:$pipelineVersion"
   docker push "$imageRegistry/pipelines-cloud-sdk:$pipelineVersion"
   docker push "$imageRegistry/pipelines-base:$pipelineVersion"
 }

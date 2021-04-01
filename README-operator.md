@@ -1,7 +1,7 @@
 # CI/CD Operator 설치 가이드
 
 ## 구성 요소 및 버전
-* operator ([tmaxcloudck/cicd-operator:v0.2.1](https://hub.docker.com/layers/tmaxcloudck/cicd-operator/v0.2.1/images/sha256-85c8efe683f23538f472d1227c60f9af2e61bbaea3300ec602ad7999985d951a?context=explore))
+* operator ([tmaxcloudck/cicd-operator:v0.2.2](https://hub.docker.com/layers/tmaxcloudck/cicd-operator/v0.2.2/images/sha256-4d73f2956257c4a38bf818c5ea281d8ef5f1ca9cce7c3d3502e22598fc080ed0?context=explore))
 
 ## 폐쇄망 설치 가이드
 설치를 진행하기 전 아래의 과정을 통해 필요한 이미지 및 yaml 파일을 준비한다.

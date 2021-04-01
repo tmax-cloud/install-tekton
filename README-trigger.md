@@ -1,10 +1,10 @@
 # Tekton Trigger 설치 가이드
 
 ## 구성 요소 및 버전
-* controller ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.11.2](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/controller@sha256:5ecf765dfed226e0b0b466ed971d3641991fb9069fc3249a1fcb92fe350fbe95/details?tab=info))
-* webhook ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.11.2](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/webhook@sha256:5d6153712e33fcd973e6099d6db6a38e06b5061a519bd45887219f9aacbf50b9?tag=v0.11.2))
-* interceptors ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.11.2](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/interceptors@sha256:87a84f66f96ed17728ff9d3f6cba200d56c0c12eb5fbc06dee959cfb0c49197d?tag=v0.11.2))
-* eventlistenersink ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.11.2](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/eventlistenersink@sha256:ad7e626c0928fb762cb9880a29c18b15a30d44af405b7f102e8a18f21b640b2c/details?tab=info))
+* controller ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.12.1](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/controller@sha256:96a63ec6d0cc0871d7dfea9d831b6da20df474bbdcbd01caf62f488e2d682db4/details?tab=info))
+* webhook ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.12.1](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/webhook@sha256:18ea008cb0f5104e6fdece0fddc0e64f9acaa561a714b2d7b8e84b1d56452890/details?tab=info))
+* interceptors ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.12.1](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/interceptors@sha256:d21362ed5af7bc04e219393923f68a59f027fa3844b862dc405e9e799dc8456c/details?tab=info))
+* eventlistenersink ([gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.12.1](https://console.cloud.google.com/gcr/images/tekton-releases/GLOBAL/github.com/tektoncd/triggers/cmd/eventlistenersink@sha256:ec8a946b294ebb8e9752b2dd16bc8ec73f5db1a32e06fb21f97fbda135a7f39c/details?tab=info))
 
 
 ## Prerequisites
