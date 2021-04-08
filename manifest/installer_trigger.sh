@@ -3,37 +3,37 @@
 function prepare_tekton_trigger_online(){
   curl -s "https://storage.googleapis.com/tekton-releases/triggers/previous/$triggerVersion/release.yaml" -o yaml/trigger.yaml
 
-  docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:$triggerVersion"
-  docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:$triggerVersion"
-  docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:$triggerVersion"
-  docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:$triggerVersion"
+  sudo docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:$triggerVersion"
+  sudo docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:$triggerVersion"
+  sudo docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:$triggerVersion"
+  sudo docker pull "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:$triggerVersion"
 
-  docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:$triggerVersion" "trigger-controller:$triggerVersion"
-  docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:$triggerVersion" "trigger-webhook:$triggerVersion"
-  docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:$triggerVersion" "trigger-interceptors:$triggerVersion"
-  docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:$triggerVersion" "trigger-eventlistenersink:$triggerVersion"
+  sudo docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:$triggerVersion" "trigger-controller:$triggerVersion"
+  sudo docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:$triggerVersion" "trigger-webhook:$triggerVersion"
+  sudo docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:$triggerVersion" "trigger-interceptors:$triggerVersion"
+  sudo docker tag "gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:$triggerVersion" "trigger-eventlistenersink:$triggerVersion"
 
-  docker save "trigger-controller:$triggerVersion" > "$install_dir/tar/trigger-controller-$triggerVersion.tar"
-  docker save "trigger-webhook:$triggerVersion" > "$install_dir/tar/trigger-webhook-$triggerVersion.tar"
-  docker save "trigger-interceptors:$triggerVersion" > "$install_dir/tar/trigger-interceptors-$triggerVersion.tar"
-  docker save "trigger-eventlistenersink:$triggerVersion" > "$install_dir/tar/trigger-eventlistenersink-$triggerVersion.tar"
+  sudo docker save "trigger-controller:$triggerVersion" > "$install_dir/tar/trigger-controller-$triggerVersion.tar"
+  sudo docker save "trigger-webhook:$triggerVersion" > "$install_dir/tar/trigger-webhook-$triggerVersion.tar"
+  sudo docker save "trigger-interceptors:$triggerVersion" > "$install_dir/tar/trigger-interceptors-$triggerVersion.tar"
+  sudo docker save "trigger-eventlistenersink:$triggerVersion" > "$install_dir/tar/trigger-eventlistenersink-$triggerVersion.tar"
 }
 
 function prepare_tekton_trigger_offline(){
-  docker load < "$install_dir/tar/trigger-controller-$triggerVersion.tar"
-  docker load < "$install_dir/tar/trigger-webhook-$triggerVersion.tar"
-  docker load < "$install_dir/tar/trigger-interceptors-$triggerVersion.tar"
-  docker load < "$install_dir/tar/trigger-eventlistenersink-$triggerVersion.tar"
+  sudo docker load < "$install_dir/tar/trigger-controller-$triggerVersion.tar"
+  sudo docker load < "$install_dir/tar/trigger-webhook-$triggerVersion.tar"
+  sudo docker load < "$install_dir/tar/trigger-interceptors-$triggerVersion.tar"
+  sudo docker load < "$install_dir/tar/trigger-eventlistenersink-$triggerVersion.tar"
 
-  docker tag "trigger-controller:$triggerVersion" "$imageRegistry/trigger-controller:$triggerVersion"
-  docker tag "trigger-webhook:$triggerVersion" "$imageRegistry/trigger-webhook:$triggerVersion"
-  docker tag "trigger-interceptors:$triggerVersion" "$imageRegistry/trigger-interceptors:$triggerVersion"
-  docker tag "trigger-eventlistenersink:$triggerVersion" "$imageRegistry/trigger-eventlistenersink:$triggerVersion"
+  sudo docker tag "trigger-controller:$triggerVersion" "$imageRegistry/trigger-controller:$triggerVersion"
+  sudo docker tag "trigger-webhook:$triggerVersion" "$imageRegistry/trigger-webhook:$triggerVersion"
+  sudo docker tag "trigger-interceptors:$triggerVersion" "$imageRegistry/trigger-interceptors:$triggerVersion"
+  sudo docker tag "trigger-eventlistenersink:$triggerVersion" "$imageRegistry/trigger-eventlistenersink:$triggerVersion"
 
-  docker push "$imageRegistry/trigger-controller:$triggerVersion"
-  docker push "$imageRegistry/trigger-webhook:$triggerVersion"
-  docker push "$imageRegistry/trigger-interceptors:$triggerVersion"
-  docker push "$imageRegistry/trigger-eventlistenersink:$triggerVersion"
+  sudo docker push "$imageRegistry/trigger-controller:$triggerVersion"
+  sudo docker push "$imageRegistry/trigger-webhook:$triggerVersion"
+  sudo docker push "$imageRegistry/trigger-interceptors:$triggerVersion"
+  sudo docker push "$imageRegistry/trigger-eventlistenersink:$triggerVersion"
 }
 
 function install_tekton_trigger(){
