@@ -8,7 +8,7 @@
 | ------ | --- | ------ |
 | Pipeline | v0.22.0 | [Tekton Pipeline Installation Guide](./README-pipelines.md) |
 | Trigger | v0.12.1 | [Tekton Trigger Installation Guide](./README-trigger.md) |
-| CI/CD Operator | v0.2.2 | [CI/CD Operator Installation Guide](./README-operator.md) |
+| CI/CD Operator | v0.3.0 | [CI/CD Operator Installation Guide](./README-operator.md) |
 
 ### 전체 설치
 #### 공통
