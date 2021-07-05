@@ -2,6 +2,9 @@
 
 function prepare_cicd_operator_online(){
   curl -s "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/release.yaml" -o "$install_dir/yaml/operator.yaml"
+  curl -s "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_approvals.yaml" -o "$install_dir/yaml/cicd.tmax.io_approvals.yaml"
+  curl -s "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_integrationconfigs.yaml" -o "$install_dir/yaml/cicd.tmax.io_integrationconfigs.yaml"
+  curl -s "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_integrationjobs.yaml" -o "$install_dir/yaml/cicd.tmax.io_integrationjobs.yaml"
 
   sudo docker pull "tmaxcloudck/cicd-operator:$operatorVersion"
   sudo docker pull "tmaxcloudck/cicd-blocker:$operatorVersion"
@@ -39,10 +42,20 @@ function install_cicd_operator(){
 
   if [[ "$imageRegistry" == "" ]]; then
     kubectl apply -f "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/release.yaml" "$kubectl_opt"
+
+    # Replace with i18n CRDs
+    kubectl replace -f "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_approvals.yaml" "$kubectl_opt"
+    kubectl replace -f "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_integrationconfigs.yaml" "$kubectl_opt"
+    kubectl replace -f "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_integrationjobs.yaml" "$kubectl_opt"
   else
     sed -i -E "s/tmaxcloudck\/([^\n\"]*)/$imageRegistry\/\1/g" "$install_dir/yaml/operator.yaml"
 
     kubectl apply -f "$install_dir/yaml/operator.yaml" "$kubectl_opt"
+
+    # Replace with i18n CRDs
+    kubectl replace -f "$install_dir/yaml/cicd.tmax.io_approvals.yaml" "$kubectl_opt"
+    kubectl replace -f "$install_dir/yaml/cicd.tmax.io_integrationconfigs.yaml" "$kubectl_opt"
+    kubectl replace -f "$install_dir/yaml/cicd.tmax.io_integrationjobs.yaml" "$kubectl_opt"
 
     kubectl -n cicd-system patch cm cicd-config --type merge -p "{\"data\": {\"gitImage\": \"$REGISTRY/alpine/git:1.0.30\"}}"
   fi
