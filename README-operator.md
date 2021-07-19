@@ -1,8 +1,8 @@
 # CI/CD Operator 설치 가이드
 
 ## 구성 요소 및 버전
-* operator ([tmaxcloudck/cicd-operator:v0.3.1](https://hub.docker.com/layers/tmaxcloudck/cicd-operator/v0.3.1/images/sha256-112a13866ed0bfa13d0c02ee187f5973fb20589996da565de1cf58d290d9b28b?context=explore))
-* blocker ([tmaxcloudck/cicd-blocker:v0.3.1](https://hub.docker.com/layers/tmaxcloudck/cicd-blocker/v0.3.1/images/sha256-ccb0e48c34f8309ff8918bfa9b9c2680090e1c809a4d135f3a7f2b0731a82a33?context=explore))
+* operator ([tmaxcloudck/cicd-operator:v0.3.2](https://hub.docker.com/layers/tmaxcloudck/cicd-operator/v0.3.2/images/sha256-2d1f9f7a73c589b0f078d962545add0c9bec342041c8143c205146b99181befd?context=explore))
+* blocker ([tmaxcloudck/cicd-blocker:v0.3.2](https://hub.docker.com/layers/tmaxcloudck/cicd-blocker/v0.3.2/images/sha256-15e7f8f65686d8aaccb4e0149f4d346ebd315a9304f93f1e35f63c4c61e508b2?context=explore))
 * alpine/git ([docker.io/alpine/git:1.0.30](https://hub.docker.com/layers/alpine/git/1.0.30/images/sha256-0595334722a2d486ed7c1a10a9138180f052343d5569942ecceb88d6e7fd1c0f?context=explore))
 
 ## 폐쇄망 설치 가이드
