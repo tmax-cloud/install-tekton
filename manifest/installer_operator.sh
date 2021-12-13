@@ -49,6 +49,8 @@ function install_cicd_operator(){
     kubectl replace -f "https://raw.githubusercontent.com/tmax-cloud/cicd-operator/$operatorVersion/config/crd-key-mapping/cicd.tmax.io_integrationjobs.yaml" "$kubectl_opt"
   else
     sed -i -E "s/tmaxcloudck\/([^\n\"]*)/$imageRegistry\/\1/g" "$install_dir/yaml/operator.yaml"
+    sed -i -E "s/tmaxcloudck\/([^\n\"]*)/$imageRegistry\/\1/g" "$install_dir/yaml/blocker_deploy.yaml"
+    sed -i -E "s/tmaxcloudck\/([^\n\"]*)/$imageRegistry\/\1/g" "$install_dir/yaml/controller_deploy.yaml"
 
     kubectl apply -f "$install_dir/yaml/operator.yaml" "$kubectl_opt"
 
@@ -59,6 +61,12 @@ function install_cicd_operator(){
 
     kubectl -n cicd-system patch cm cicd-config --type merge -p "{\"data\": {\"gitImage\": \"$REGISTRY/alpine/git:1.0.30\"}}"
   fi
+
+  # For Service account
+  kubectl apply -f "$install_dir/yaml/service_account.yaml" "$kubectl_opt"
+  kubectl apply -f "$install_dir/yaml/blocker_deploy.yaml" "$kubectl_opt"
+  kubectl apply -f "$install_dir/yaml/controller_deploy.yaml" "$kubectl_opt"
+  kubectl apply -f "$install_dir/yaml/role_binding.yaml" "$kubectl_opt"
 
   kubectl -n cicd-system patch configmap cicd-config --type merge -p '{"data": {"ingressClass": "nginx-shd"}}' "$kubectl_opt"
   echo  "========================================================================="
