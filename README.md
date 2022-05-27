@@ -1,5 +1,13 @@
 # Tekton CI/CD Installation Guide
 
+## 개요
+
+Tekton: kubernetes 기반 오픈소스 프레임워크로, 지속적 통합 및 배포(CI/CD) 시스템 구축을 지원함
+
+CICD-operator: Tekton을 backend로 사용하는 kubernetes -native CICD 플랫폼 
+
+![architecture.png](https://github.com/tmax-cloud/cicd-operator/blob/master/docs/figures/architecture.png?raw=true)
+
 **아래 가이드는 HyperCloud 5.x 버전을 위한 가이드임.**
 
 ### Module
